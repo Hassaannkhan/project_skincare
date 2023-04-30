@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>ReGiStRaTiOn form</title>
+<head>
+    <h1> FoRm</h1>
+</head>
+<style>
+    body{
+        background-color :lightpink;
+        font-size:medium;
+        text-decoration: wavy;
+        text-align: center;
+       
+    }
+    #guriya{
+        border: 10px  solid lightcoral;
+        margin: 6px;
+        display: inline-flex;
+        justify-content: space-around;
+        width: 90%;
+        align-items: center;
+        background-color:thistle;
+    }
+    p{
+        font-size: large;
+    }
+</style>
+<body>
+<div id="guriya">
+    <div >
+        <img src="/static/skincareform.jpg" width="620" height="450" >
+    </div>
+    <div  >
+        <form  method="POST" action="/skincareform/">
+            {% csrf_token %}
+            <label  for="uname">NAME:</label>
+            <input id="uname" type="text" placeholder="enter the name" name="uname">
+            <br>
+            <br>
+            <label for="email">EMAIL:</label>
+            <input ID="email" type="text" placeholder="enter the email" name="email">
+            <br>
+            <br>
+            <label for="age">AGE:</label>
+            <input ID="age" type="text" placeholder="enter the age" name="age">
+            <br>
+            <br>
+            
+            <label for="skintype">SKIN TYPE:</label>
+            <input id="skintype" type="text" placeholder="enter the skin type" name="skintype">
+            <br>
+            {% comment %} <input type="radio"  value="18-25" name="age">
+            <label for="18-25">18-25</label>
+            <br>
+        
+    
+            <input type="radio"  value="26-35" name="age">
+            <label for="26-30">26-35</label>
+            <br>
+            <input type="radio" value="35-45" name="age">
+            <label for="35-45" >35-45</label>
+            <br> {% endcomment %}
+
+            {% comment %} <input type="radio"value="ACNE" name="guriya">
+            <label for="ACNE">ACNE</label>
+            <br>
+            <input type="radio"value="DRY" name="guriya">
+            <label for="DRY">DRY</label>
+            <br>
+            <input type="radio"value="OILY" name="guriya">
+            <label for="OILY">OILY</label>
+            <br>  {% endcomment %}
+            <br>
+            {% comment %} <button type="submit" form="nameform" value="Submit">Submit</button> {% endcomment %}
+            <button class="btn btn-primary" type="submit" >Submit form</button>
+            <p>Click the "Submit" button and the form-data will be sent to a page on the 
+                server to get the form details</p>
+        </form >  
+    </div>
+    
+</div>
+<div>
+        <h3><strong>Medincs Suggest{{ med }}</strong></h3>
+        {% for med in medncs %}
+        <strong>Medincs</strong>
+        <ul>
+            <li>NAME :{{ med.d_name }}</li>
+            <li>PRICE :{{ med.price }}</li>
+        </ul>
+        {% endfor %}
+    </div>
+</body>
+</html>
